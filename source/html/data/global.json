@@ -1,4 +1,28 @@
 {
 	"title": "Welcome to Luke and Peggy's Wedding",
-	"subtitle": "Here you can find details on the event of the year"
+	"subtitle": "Here you can find details on the event of the year",
+	"navigation": {
+		"items": [
+			{
+				"title": "The day",
+				"icon": "bells_icon",
+				"link": "theday"
+			},
+			{
+				"title": "People & stories",
+				"icon": "bouquet_icon",
+				"link": "peopleandstories"
+			},
+			{
+				"title": "Logistics",
+				"icon": "champagne_icon",
+				"link": "logistics"
+			},
+			{
+				"title": "RSVP",
+				"icon": "dove_icon",
+				"link": "rsvp"
+			}
+		]
+	}
 }

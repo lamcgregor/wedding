@@ -96,7 +96,7 @@ module.exports = function (grunt) {
             scripts: {
                 options: { livereload: true },
                 files: ['<%= config.source %>js/*.js'],
-                tasks: ['newer:copy:js']
+                tasks: ['copy:js']
             },
             html: {
                 options: { livereload: true },
@@ -111,7 +111,7 @@ module.exports = function (grunt) {
             },
             css: {
                 options: { livereload: true },
-                files: ['<%= config.source %>/css/**/*.styl'],
+                files: ['<%= config.source %>css/**/*.styl'],
                 tasks: ['stylus:dev']
             },
             images: {

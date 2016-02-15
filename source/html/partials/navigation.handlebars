@@ -1,0 +1,19 @@
+{{#global}}
+	{{#if navigation}}
+		{{#with navigation}}
+			<nav class="navigation"><!--
+				{{#if items}}
+					{{#each items}}
+						--><div class="navigation--item">
+							{{#if link}}
+								<a href="{{link}}.html">{{#if icon}}<img src="images/{{icon}}.png" />{{/if}}{{#if title}}{{title}}{{else}}Lorem ipsum{{/if}}</a>
+							{{else}}
+								{{#if icon}}<img src="images/{{icon}}.png" />{{/if}}{{#if title}}{{title}}{{else}}Lorem ipsum{{/if}}
+							{{/if}}
+						</div><!--
+					{{/each}}
+				{{/if}}
+			--></nav>
+		{{/with}}
+	{{/if}}
+{{/global}}
