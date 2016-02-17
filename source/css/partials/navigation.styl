@@ -1,20 +1,35 @@
 .navigation
+	text-align center
+	font-family 'DistantStroke'
 	&--item
 		display inline-block
 		vertical-align middle
 		text-align center
 		width 100%
+		font-size 40px
 		@media $tablet-breakpoint
 			width 50%
 		@media $desktop-breakpoint
-			width 25%
+			width auto
+			padding 0 20px
+		@media $desktop-large-breakpoint
+			width 20%
+			padding 0
 		a
 			text-decoration none
 			display inline-block
-			padding 0.5em
+			vertical-align middle
+			padding 0.25em 0.25em 0.25em
+			margin-bottom 1px
 			&:hover
 				border-bottom 1px solid $Mediumgrey
+				margin-bottom 0
+			.small
+				font-size 30px
 		img
-			max-width 100px
+			max-width 50px
+			max-height 50px
+			height auto
+			width auto
 			display inline-block
 			vertical-align middle

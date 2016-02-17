@@ -114,9 +114,13 @@ module.exports = function (grunt) {
                 files: ['<%= config.source %>css/**/*.styl'],
                 tasks: ['stylus:dev']
             },
-            images: {
+            files: {
                 options: { livereload: true },
-                files: ['<%= config.source %>images/*.*'],
+                files: [
+                    '<%= config.source %>fonts/*.*',
+                    '<%= config.source %>css/images/*.*',
+                    '<%= config.source %>images/*.*'
+                ],
                 tasks: ['copy:files']
             }
         },

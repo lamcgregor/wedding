@@ -1,0 +1,13 @@
+
+{{#if content}}
+    <section class="content"><!--
+        {{#with content}}
+            {{#each columns}}
+                --><article class="column column-{{@index}}">
+                    {{#if title}}<h3 class="column--title">{{title}}</h3>{{/if}}
+                    {{#if description}}<div class="column--content">{{{description}}}</div>{{/if}}
+                </article><!--
+            {{/each}}
+        {{/with}}
+    --></section>
+{{/if}}

@@ -1,20 +1,75 @@
 @import 'partials/variables'
 @import 'partials/breakpoints'
 @import 'partials/fonts'
-@import 'partials/navigation'
+
+*
+	-webkit-box-sizing border-box
+	-moz-box-sizing border-box
+	box-sizing border-box
 
 html
-	font-family 'DistantStroke'
+body
+	margin 0
+	padding 0
+
+html
+	font-family 'Karbon'
 	font-size 30px
 	color $Mediumgrey
+	
+a
+	color inherit
+h1
+h2
+h3
+h4
+	margin 0
+	padding 0
+	font-family 'DistantStroke'
+	font-weight normal
+	
+.center
+	text-align center
+.jumbo
+	font-size 58px
+	font-weight normal
+	margin 50px auto
+	&--border
+		font-size inherit
+		border 1px solid $Lightgrey
+		display inline-block
+		padding 10px 20px 5px
 
+.wrapper
+	margin 30px 1em
+	@media $tablet-breakpoint
+		margin 60px auto
+	@media $desktop-large-breakpoint
+		max-width 90%
 header
 	text-align center
 	h1
 		font-weight normal
-		font-size 3em
-	h2
+		font-size 58px
+		margin-bottom 30px
+		display none
+		@media $tablet-breakpoint
+			margin-bottom 50px
+			display block
+	.intro
 		font-weight 100
-		font-family Helvetica
-		font-size 1em
+		font-family 'Karbon'
+		font-size 20px
+		margin-bottom 20px
+	.break
+		display block
+		clear right
+		@media $tablet-breakpoint
+			display inline
+			font-size 48px
+			padding 0 10px 0 15px
+			
+@import 'partials/navigation'
+@import 'partials/pages'
+	
 		

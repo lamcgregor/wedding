@@ -1,0 +1,19 @@
+{
+    "title": "20. 08. 2016",
+    "content": {
+        "columns": [
+            {
+                "title": "Schedule",
+                "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis elit in eros aliquet tincidunt. Sed metus massa, eleifend id hendrerit in, vestibulum quis leo. Pellentesque nec justo arcu. Duis tincidunt magna quis ligula dignissim, a pretium augue auctor. Mauris tristique blandit nisl, quis facilisis odio. Nam eleifend lacus eget sem cursus pulvinar. Morbi congue erat id dui elementum, vitae sagittis neque imperdiet. Vestibulum leo justo, ullamcorper vel congue et, blandit a dui. Nullam eget lectus ac dui placerat imperdiet sed a nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur est ante, viverra non magna sed, luctus euismod justo. Mauris accumsan tortor quis euismod ultrices.</p><p>Pellentesque pharetra enim faucibus massa viverra, ac mattis libero vestibulum.</p>"
+            },
+            {
+                "title": "Attire",
+                "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis elit in eros aliquet tincidunt. Sed metus massa, eleifend id hendrerit in, vestibulum quis leo. Pellentesque nec justo arcu. Duis tincidunt magna quis ligula dignissim, a pretium augue auctor. Mauris tristique blandit nisl, quis facilisis odio.</p>"
+            },
+            {
+                "title": "Gifts",
+                "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis elit in eros aliquet tincidunt. Sed metus massa, eleifend id hendrerit in, vestibulum quis leo. Pellentesque nec justo arcu. Duis tincidunt magna quis ligula dignissim, a pretium augue auctor. Mauris tristique blandit nisl, quis facilisis odio. Nam eleifend lacus eget sem cursus pulvinar. Morbi congue erat id dui elementum, vitae sagittis neque imperdiet. Vestibulum leo justo, ullamcorper vel congue et, blandit a dui. Nullam eget lectus ac dui placerat imperdiet sed a nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur est ante, viverra non magna sed, luctus euismod justo. Mauris accumsan tortor quis euismod ultrices.</p><p>Pellentesque pharetra enim faucibus massa viverra, ac mattis libero vestibulum.</p>"
+            }
+        ]
+    }
+}
