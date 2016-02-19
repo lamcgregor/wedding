@@ -1,0 +1,30 @@
+{
+    "people": {
+        "items": [
+            {
+                "title": "Luke Woollett",
+                "subtitle": "The lucky man",
+                "image": "luke-front.jpg",
+                "back": "luke-back.jpg"
+            },
+            {
+                "title": "Peggy McGregor",
+                "subtitle": "The lucky lady",
+                "image": "peggy-front.jpg",
+                "back": "peggy-back.jpg"
+            },
+            {
+                "title": "Luke Woollett",
+                "subtitle": "The lucky man",
+                "image": "luke-front.jpg",
+                "back": "luke-back.jpg"
+            },
+            {
+                "title": "Peggy McGregor",
+                "subtitle": "The lucky lady",
+                "image": "peggy-front.jpg",
+                "back": "peggy-back.jpg"
+            }
+        ]
+    }
+}

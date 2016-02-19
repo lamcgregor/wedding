@@ -129,7 +129,8 @@ module.exports = function (grunt) {
                 flatten: false,
                 partials: ['<%= config.source %>html/partials/**/*.{hbs,handlebars}'],
                 layout: ['<%= config.source %>html/layouts/default.handlebars'],
-                data: ['<%= config.source %>html/data/**/*.{json,yml}']
+                data: ['<%= config.source %>html/data/**/*.{json,yml}'],
+                stripHbsWhitespace:true
             },
             pages: {
                 files: [{

@@ -1,0 +1,22 @@
+{{#if people}}
+    {{#with people}}
+        <section class="people"><!--
+            {{#each items}}
+                --><article class="people--item">
+                        <hgroup class="people--item--titles">
+                            {{#if title}}<h3 class="people--item--title">{{title}}</h3>{{/if}}
+                            {{#if subtitle}}<h4 class="people--item--subtitle">{{subtitle}}</h4>{{/if}}
+                        </hgroup>
+                        {{#if image}}
+                        <div class="people--item--image" ontouchstart="this.classList.toggle('hover')">
+                            <div class="flip">
+                                <img class="people--item--image_front" src="images/{{image}}" />
+                                {{#if back}}<img class="people--item--image_back" src="images/{{back}}" />{{/if}}
+                            </div>
+                        </div>
+                    {{/if}}
+                </article><!--
+            {{/each}}
+        --></section>
+    {{/with}}
+{{/if}}

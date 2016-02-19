@@ -1,0 +1,56 @@
+.people
+    margin-top 50px
+    &--item
+        @media $tablet-breakpoint
+            width 50%
+            display inline-block
+        @media $desktop-breakpoint
+            width 25%
+            padding 1em
+        &--title
+            margin-bottom 5px
+            &s
+                padding 0.5em 1em
+                border 1px solid $Lightgrey
+                margin-bottom 1em
+        &--subtitle
+            font-family 'Karbon'
+            font-size 0.8em
+        &--image
+            perspective 1000
+            transform-style preserve-3d
+            width 100%
+            height 400px
+            img
+                max-width 100%
+            .flip
+            &_front
+            &_back
+                transition 0.6s
+                transform-style preserve-3d
+                -moz-transform perspective(1000px)
+            .flip
+                position relative
+                width 100%
+                height 100%
+            &_back
+            &_front
+                width 100%
+                height 100%
+                backface-visibility hidden
+                position absolute
+                top 0
+                left 0
+            &_front
+                z-index 2
+                transform rotateY(0deg)
+            &_back
+                transform rotateY(-180deg)
+            &:hover
+            &.hover
+                .people--item--image
+                    &_front
+                        transform rotateY(180deg)
+                    &_back
+                        transform rotateY(0deg)
+            
