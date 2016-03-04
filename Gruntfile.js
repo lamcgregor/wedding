@@ -62,12 +62,6 @@ module.exports = function (grunt) {
             }
         },
         coffee: {
-            dev: {
-                options: {
-                  join: true,
-                },
-                files: { '<%= config.dest %>js/app.js': '<%= config.source %>js/**/*.coffee' }
-            },
             compile: {
                 options: {
                   join: true,
@@ -167,7 +161,7 @@ module.exports = function (grunt) {
         'listItems',
         'assemble',
         'stylus:dev',
-        'coffee:dev',
+        'coffee:compile',
         'copy:js',
         'copy:files'
     ]);
@@ -175,7 +169,7 @@ module.exports = function (grunt) {
         'listItems',
         'assemble',
         'stylus:dev',
-        'coffee:dev',
+        'coffee:compile',
         'copy:js',
         'copy:files'
     ]);
