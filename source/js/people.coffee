@@ -9,7 +9,6 @@ document.addEventListener "DOMContentLoaded", ->
     @dataset["touchX"] = e.touches[0].clientX
     @dataset["touchY"] = e.touches[0].clientY
     @dataset["touchStamp"] = new Date().getTime()
-    console.log "touch start #{@dataset["touchX"]}px/#{@dataset["touchY"]}px"
 
     # This is a touch device, stop listening on mouse events (for devices that have both)
     @removeEventListener('mouseover', mouseOverListener)
@@ -21,10 +20,8 @@ document.addEventListener "DOMContentLoaded", ->
       dt = new Date().getTime() - parseInt(@dataset["touchStamp"])
       dist = Math.sqrt(dx*dx + dy*dy)
 
-      console.log "touch end #{dx}px/#{dy}px/#{dist}px/#{dt}ms"
-
+      # Only flip if it's a tap not a drag (i.e. scrolling)
       if dist < 50 && dt < 400
-        console.log "toggle"
         @classList.toggle('hover')
 
   for elem in document.getElementsByClassName("people--item--image")
