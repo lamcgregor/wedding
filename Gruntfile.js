@@ -23,6 +23,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('assemble');
@@ -58,6 +59,20 @@ module.exports = function (grunt) {
                     compress: false
                 },
                 files: { '<%= config.dest %>css/global.css': '<%= config.source %>css/core.styl' }
+            }
+        },
+        coffee: {
+            dev: {
+                options: {
+                  join: true,
+                },
+                files: { '<%= config.dest %>js/app.js': '<%= config.source %>js/**/*.coffee' }
+            },
+            compile: {
+                options: {
+                  join: true,
+                },
+                files: { '<%= config.dest %>js/app.js': '<%= config.source %>js/**/*.coffee' }
             }
         },
         copy: {
@@ -111,6 +126,11 @@ module.exports = function (grunt) {
             },
             css: {
                 options: { livereload: true },
+                files: ['<%= config.source %>js/**/*.coffee'],
+                tasks: ['coffee:dev']
+            },
+            js: {
+                options: { livereload: true },
                 files: ['<%= config.source %>css/**/*.styl'],
                 tasks: ['stylus:dev']
             },
@@ -147,6 +167,7 @@ module.exports = function (grunt) {
         'listItems',
         'assemble',
         'stylus:dev',
+        'coffee:dev',
         'copy:js',
         'copy:files'
     ]);
@@ -154,6 +175,7 @@ module.exports = function (grunt) {
         'listItems',
         'assemble',
         'stylus:dev',
+        'coffee:dev',
         'copy:js',
         'copy:files'
     ]);
