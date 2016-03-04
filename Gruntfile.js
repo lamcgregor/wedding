@@ -121,7 +121,7 @@ module.exports = function (grunt) {
             css: {
                 options: { livereload: true },
                 files: ['<%= config.source %>js/**/*.coffee'],
-                tasks: ['coffee:dev']
+                tasks: ['coffee:compile']
             },
             js: {
                 options: { livereload: true },
