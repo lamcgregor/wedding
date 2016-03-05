@@ -8,10 +8,7 @@
                             {{#if subtitle}}<h4 class="people--item--subtitle">{{subtitle}}</h4>{{/if}}
                         </hgroup>
                         {{#if image}}
-                        <div class="people--item--image"
-                            ontouchstart="this.classList.toggle('hover'); this.onmouseover=null; this.onmouseout=null"
-                            onmouseover="this.classList.add('hover')"
-                            onmouseout="this.classList.remove('hover')">
+                        <div class="people--item--image">
                             <div class="flip">
                                 <img class="people--item--image_front" src="images/{{image}}" />
                                 {{#if back}}<img class="people--item--image_back" src="images/{{back}}" />{{/if}}
