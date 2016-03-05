@@ -118,12 +118,12 @@ module.exports = function (grunt) {
                     'assemble'
                 ]
             },
-            css: {
+            js: {
                 options: { livereload: true },
                 files: ['<%= config.source %>js/**/*.coffee'],
                 tasks: ['coffee:compile']
             },
-            js: {
+            css: {
                 options: { livereload: true },
                 files: ['<%= config.source %>css/**/*.styl'],
                 tasks: ['stylus:dev']
