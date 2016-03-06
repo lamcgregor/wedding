@@ -35,3 +35,52 @@ document.addEventListener 'DOMContentLoaded', ->
 
     bindTap elem, ->
       @classList.toggle('hover')
+
+
+  for elem in document.getElementsByClassName('people--item--titles')
+    # Capture timeout variable in a closure
+    (->
+      collapseTimeout = null
+      expandTimeout = null
+      titlesElem = elem
+      detailsElem = null
+      for child in elem.childNodes
+        if child.classList?.contains('people--item--details')
+          detailsElem = child
+
+      height = detailsElem.offsetHeight
+      detailsElem.style.height = 0
+
+      onCollapse = ->
+        titlesElem.classList.remove('collapsing')
+
+      onExpand = ->
+        detailsElem.style.height = "auto"
+        height = detailsElem.offsetHeight
+        setTimeout (-> detailsElem.style.height = "#{height}px"), 0
+
+      expandListener = ->
+        if @classList.contains('expanded')
+          clearTimeout expandTimeout
+          collapseTimeout = setTimeout onCollapse, 400
+
+          @classList.remove('expanded')
+          @classList.add('collapsing')
+          detailsElem.style.height = 0
+
+        else
+          clearTimeout collapseTimeout
+          collapseTimeout = setTimeout onExpand, 450
+
+          detailsElem.style.height = "#{height}px"
+          @classList.add('expanded')
+          @classList.remove('collapsing')
+
+      bindTap elem, expandListener
+      elem.addEventListener 'touchstart', ->
+        @removeEventListener 'click', expandListener
+
+      elem.addEventListener 'click', expandListener
+    )()
+
+
