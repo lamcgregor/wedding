@@ -72,7 +72,7 @@ document.addEventListener 'DOMContentLoaded', ->
 
         else
           clearTimeout collapseTimeout
-          collapseTimeout = setTimeout onExpand, 450
+          expandTimeout = setTimeout onExpand, 450
 
           detailsElem.style.height = "#{height}px"
           @classList.add('expanded')
