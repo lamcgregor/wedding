@@ -6,6 +6,11 @@
                         <hgroup class="people--item--titles">
                             {{#if title}}<h3 class="people--item--title">{{title}}</h3>{{/if}}
                             {{#if subtitle}}<h4 class="people--item--subtitle">{{subtitle}}</h4>{{/if}}
+                            {{#if bio}}
+                            <div class="people--item--details">
+                                <p>{{bio}}</p>
+                            </div>
+                            {{/if}}
                         </hgroup>
                         {{#if image}}
                         <div class="people--item--image">
@@ -14,7 +19,7 @@
                                 {{#if back}}<img class="people--item--image_back" src="images/{{back}}" />{{/if}}
                             </div>
                         </div>
-                    {{/if}}
+                        {{/if}}
                 </article><!--
             {{/each}}
         --></section>

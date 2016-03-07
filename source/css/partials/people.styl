@@ -10,12 +10,34 @@
         &--title
             margin-bottom 5px
             &s
+                cursor pointer
+                position relative
                 padding 0.5em 1em
                 border 1px solid $Lightgrey
                 margin-bottom 1em
+                &.expanded, &.collapsing
+                    border-bottom none
+                    .people--item--details
+                        opacity 1
         &--subtitle
             font-family 'Karbon'
             font-size 0.8em
+        &--details
+            position absolute
+            z-index 10
+            background-color rgba(255,255,255,0.95)
+            font-size 0.8em
+            // Add width so that it overlaps other border
+            width calc(100% + 2px)
+            left -1px
+            right 0
+            border 1px solid #b2c4ca
+            border-top none
+            transition height 0.5s ease-out
+            overflow hidden
+            margin-top: 0.5em
+            padding: 0.5em
+            opacity 0
         &--image
             perspective 1000
             transform-style preserve-3d
