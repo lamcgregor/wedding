@@ -1,0 +1,14 @@
+{
+    "inputs": [
+        {
+            "label": "Full Name",
+            "name": "full_name",
+            "type": "string"
+        },
+        {
+            "label": "Email Address",
+            "name": "email",
+            "type": "email"
+        }
+    ]
+}
