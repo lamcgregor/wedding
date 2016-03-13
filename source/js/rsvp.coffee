@@ -6,12 +6,15 @@ $(document).ready ->
             type:'GET'
             success: (response) ->
                 rsvpForm.html response
-                $(document).on 'submit', '.js-rsvp-form form', (e) ->
-                    e.preventDefault()
-                    $this = $(this)
-                    content = $this.serialize $this
-                    $.post $this.attr('action'),content, (response) ->
-                        if response
-                            $this.html response
+        $(document).on 'submit', 'form', (e) ->
+            e.preventDefault()
+            $this = $(this)
+            content = $this.serialize $this
+            $.post $this.attr('action'),content, (response) ->
+                if response
+                    $this
+                        .parent()
+                        .html response
                     return
+            return
         return
