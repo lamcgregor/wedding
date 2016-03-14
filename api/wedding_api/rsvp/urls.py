@@ -18,5 +18,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.form),
+    url(r'^user/?$', views.user_form),
+    url(r'^$', views.rsvp_form),
 ]

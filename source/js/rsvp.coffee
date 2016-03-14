@@ -2,7 +2,7 @@ $(document).ready ->
     rsvpForm = $('.js-rsvp-form');
     if rsvpForm.length > 0
         $.ajax
-            url: '/api/rsvp'
+            url: '/api/rsvp/user'
             type:'GET'
             success: (response) ->
                 rsvpForm.html response
