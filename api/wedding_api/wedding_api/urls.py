@@ -19,5 +19,5 @@ from rsvp.apps import RsvpConfig
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/rsvp/?', include('rsvp.urls')),
+    url(r'^api/rsvp/', include('rsvp.urls')),
 ]
