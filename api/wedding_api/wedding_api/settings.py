@@ -90,10 +90,31 @@ WSGI_APPLICATION = 'wedding_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': '/data/db.sqlite3',
     }
 }
 
+
+ZAPPA_SETTINGS = {
+    'dev': {
+        'aws_region': 'us-east-1', # AWS Region (default US East),
+        'domain': 'yourapp.yourdomain.com', # Required if you're using a domain
+        'http_methods': ['GET', 'POST'], # HTTP Methods to route,
+        'integration_response_codes': [200, 301, 404, 500], # Integration response status codes to route
+        'memory_size': 512, # Lambda function memory in MB
+        'method_response_codes': [200, 301, 404, 500], # Method response status codes to route
+        'parameter_depth': 10, # Size of URL depth to route. Defaults to 5.
+        'role_name': "MyLambdaRole", # Lambda execution Role
+        's3_bucket': 'dev-bucket', # Zappa zip bucket,
+        'settings_file': '~/Projects/MyApp/settings/dev_settings.py', # Server side settings file location,
+        'touch': False, # GET the production URL upon initial deployment (default True)
+        'use_precompiled_packages': True, # If possible, use C-extension packages which have been pre-compiled for AWS Lambda
+        'vpc_config': { # Optional VPC configuration for Lambda function
+            'SubnetIds': [ 'subnet-12345678' ], # Note: not all availability zones support Lambda!
+            'SecurityGroupIds': [ 'sg-12345678' ]
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -130,5 +151,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-
+STATIC_ROOT = 'static'
 STATIC_URL = '/static/'

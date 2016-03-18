@@ -1,0 +1,16 @@
+FROM alpine:latest
+
+WORKDIR /app
+
+RUN apk add python3 --no-cache
+RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
+    wget "https://bootstrap.pypa.io/get-pip.py" -O /dev/stdout --no-check-certificate | python3 && \
+    apk del build-dependencies
+
+ADD api/requirements.txt ./
+RUN pip install -r requirements.txt
+
+ADD api ./
+RUN python3 wedding_api/manage.py collectstatic --no-input
+
+CMD ["./entrypoint.sh"]

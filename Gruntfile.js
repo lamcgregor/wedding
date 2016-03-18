@@ -19,7 +19,7 @@ module.exports = function (grunt) {
         }
         grunt.file.write('source/html/partials/fileList.handlebars', contents);
     });
-    grunt.loadNpmTasks('assemble');
+    grunt.loadNpmTasks('grunt-assemble');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-stylus');
@@ -27,7 +27,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-connect-proxy');
-    grunt.loadNpmTasks('assemble');
     grunt.initConfig({
         config: {
             source: 'source/',
