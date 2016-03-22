@@ -35,7 +35,7 @@ def guest_form(request):
                 last_name__iexact=form.cleaned_data['last_name'])
 
             if len(guests) < 1:
-                form.add_error("No guest matches name, please ensure it is spelt the same as your invitation")
+                form.add_error("__all__", "No guest matches name, please ensure it is spelt the same as your invitation")
             else:
                 guest = guests.first()
                 request.session['guest_id'] = guest.id
