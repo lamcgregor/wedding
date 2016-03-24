@@ -16,6 +16,7 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-newer": "^1.1.2",
-    "grunt-connect-proxy": "^0.2.0"
+    "grunt-connect-proxy": "^0.2.0",
+    "grunt-connect-rewrite": "~0.2.1"
   }
 }

@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.template.loader import render_to_string
 
 from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 from django.core import urlresolvers
 
 from .forms import GuestForm, RsvpForm
@@ -14,14 +15,16 @@ def get_guest(request):
 def rsvp_form(request):
     if request.method == 'POST':
         form = RsvpForm(request.POST)
-        import pdb
-        pdb.set_trace()
         if form.is_valid():
-            return HttpResponseRedirect('/thanks/')
+            return JsonResponse({
+                'redirect': '/thanks'
+            })
 
     form = RsvpForm(initial={'guest': Guest.objects.get(id=request.session['guest_id'])})
 
-    return render(request, 'rsvp/rsvp_form.html', {'form': form})
+    return JsonResponse({
+        'content': render_to_string('rsvp/rsvp_form.html', {'form': form}, request=request)
+    })
 
 def guest_form(request):
     if 'guest_id' in request.session:
@@ -41,10 +44,16 @@ def guest_form(request):
                 request.session['guest_id'] = guest.id
 
             if form.is_valid():
-                return render(request, 'rsvp/rsvp_form.html', {'form': form})
+                return JsonResponse({
+                    'content': render_to_string('rsvp/rsvp_form.html', {'form': form}, request=request)
+                })
             else:
-                return render(request, 'rsvp/guest_form.html', {'form': form})
+                return JsonResponse({
+                    'content': render_to_string('rsvp/guest_form.html', {'form': form}, request=request)
+                })
 
     form = GuestForm()
 
-    return render(request, 'rsvp/guest_form.html', {'form': form})
+    return JsonResponse({
+        'content': render_to_string('rsvp/guest_form.html', {'form': form}, request=request)
+    })
