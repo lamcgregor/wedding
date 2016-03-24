@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.core import urlresolvers
 
-from .forms import GuestForm, RsvpForm
+from .forms import GuestForm, RsvpFormSet
 from .models import Guest
 
 def get_guest(request):
@@ -13,17 +13,35 @@ def get_guest(request):
     return Guest.filter(id=request.session['guest_id']).first()
 
 def rsvp_form(request):
+    guest = Guest.objects.get(id=request.session['guest_id'])
+    guests = guest.group.guest_set.order_by("last_name", "first_name")
+
     if request.method == 'POST':
-        form = RsvpForm(request.POST)
+        formset = RsvpFormSet(request.POST)
+        # Only allow submitter to change allowed guests
+        for form in formset:
+            form.fields['guest'].queryset = guests
         if form.is_valid():
+            for form in formset:
+                form.full_clean()
+                guest = form.clean()['guest']
+                guest.attending = form.clean()['attending']
+                guest.email = form.clean()['email']
+                guest.save()
+
             return JsonResponse({
                 'redirect': '/thanks'
             })
+        else:
+            for form in formset:
+                form.initial = {'guest': Guest.objects.get(id=form['guest'].value())}
+    else:
+        formset = RsvpFormSet(initial=[{'guest': g, 'email': g.email, 'attending': g.attending} for g in guests])
 
-    form = RsvpForm(initial={'guest': Guest.objects.get(id=request.session['guest_id'])})
+
 
     return JsonResponse({
-        'content': render_to_string('rsvp/form.html', {'form': form, 'action': urlresolvers.reverse('rsvp-form')}, request=request)
+        'content': render_to_string('rsvp/rsvp_form.html', {'rsvp_formset': formset, 'action': urlresolvers.reverse('rsvp-form')}, request=request)
     })
 
 def guest_form(request):

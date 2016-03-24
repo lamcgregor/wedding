@@ -1,5 +1,7 @@
-<form action="{{ action }}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
+<div class='form'>
+  <form action="{{ action }}" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit" />
+  </form>
+</div>

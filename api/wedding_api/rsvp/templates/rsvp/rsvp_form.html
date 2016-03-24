@@ -1,0 +1,13 @@
+{% load floppyforms %}
+<div class='form'>
+  <form action="{{ action }}" method="post">
+    {% csrf_token %}
+    {{ rsvp_formset.management_form }}
+    {% for rsvp_form in rsvp_formset.forms %}
+      <h2>{{ rsvp_form.initial.guest }}</h2>
+      {% form rsvp_form %}
+    {% endfor %}
+
+    <input type="submit" value="Submit" />
+  </form>
+</div>
