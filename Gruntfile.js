@@ -1,3 +1,4 @@
+var rewriteRulesSnippet = require("grunt-connect-rewrite/lib/utils").rewriteRequest;
 module.exports = function (grunt) {
     'use strict';
     grunt.registerTask('listItems', 'Lists the handlebars pages', function () {
@@ -13,7 +14,7 @@ module.exports = function (grunt) {
                 } else {
                     title = temp[1].split('.handlebars');
                 }
-                contents += '<li><a href="' + title[0] + '.html">' + title[0] + '</li>';
+                contents += '<li><a href="' + title[0] + '">' + title[0] + '</li>';
             }
             contents += '</ul>';
         }
@@ -25,6 +26,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks("grunt-connect-rewrite");
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.initConfig({
@@ -38,6 +40,10 @@ module.exports = function (grunt) {
                 livereload: 35729,
                 hostname: 'localhost'
             },
+            rules: [{
+                from: '(^((?!css|html|js|images|png|jpg|fonts|\/$).)*$)',
+                to: "$1.html"
+            }],
             livereload: {
                 options: {
                     open: true,
@@ -48,7 +54,7 @@ module.exports = function (grunt) {
                         }
 
                         // Setup the proxy
-                        var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+                        var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest, rewriteRulesSnippet];
 
                         // Serve static files.
                         options.base.forEach(function(base) {
@@ -204,6 +210,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'dev',
         'configureProxies:server',
+        'configureRewriteRules',
         'connect:livereload',
         'watch'
     ]);
