@@ -23,7 +23,7 @@ def rsvp_form(request):
     form = RsvpForm(initial={'guest': Guest.objects.get(id=request.session['guest_id'])})
 
     return JsonResponse({
-        'content': render_to_string('rsvp/rsvp_form.html', {'form': form}, request=request)
+        'content': render_to_string('rsvp/form.html', {'form': form, 'action': urlresolvers.reverse('rsvp-form')}, request=request)
     })
 
 def guest_form(request):
@@ -44,16 +44,16 @@ def guest_form(request):
                 request.session['guest_id'] = guest.id
 
             if form.is_valid():
-                return JsonResponse({
-                    'content': render_to_string('rsvp/rsvp_form.html', {'form': form}, request=request)
+                return  JsonResponse({
+                    'redirect': urlresolvers.reverse('rsvp-form')
                 })
             else:
                 return JsonResponse({
-                    'content': render_to_string('rsvp/guest_form.html', {'form': form}, request=request)
+                    'content': render_to_string('rsvp/form.html', {'form': form, 'action': urlresolvers.reverse('guest-form')}, request=request)
                 })
 
     form = GuestForm()
 
     return JsonResponse({
-        'content': render_to_string('rsvp/guest_form.html', {'form': form}, request=request)
+        'content': render_to_string('rsvp/form.html', {'form': form, 'action': urlresolvers.reverse('guest-form')}, request=request)
     })
