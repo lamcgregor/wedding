@@ -3,9 +3,22 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ExportMixin
 from import_export.admin import ImportExportModelAdmin
-from .models import Rsvp
+from .models import Guest, Group
 
-class RsvpAdmin(ImportExportModelAdmin):
+class GuestInline(admin.TabularInline):
+    model = Guest
+
+
+class GuestAdmin(ImportExportModelAdmin):
+    # inlines = [
+    #     GroupInline
+    # ]
     pass
 
-admin.site.register(Rsvp, RsvpAdmin)
+class GroupAdmin(ImportExportModelAdmin):
+    inlines = [
+        GuestInline
+    ]
+
+admin.site.register(Group, GroupAdmin)
+admin.site.register(Guest, GuestAdmin)

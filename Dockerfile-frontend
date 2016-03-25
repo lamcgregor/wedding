@@ -1,0 +1,14 @@
+FROM alpine:latest
+
+WORKDIR /app
+
+RUN apk add nodejs git ca-certificates --no-cache
+RUN apk add caddy --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/
+
+ADD package.json Gruntfile.js Caddyfile ./
+RUN npm install
+
+ADD source/ ./source
+RUN ./node_modules/grunt-cli/bin/grunt build
+
+CMD ["caddy"]

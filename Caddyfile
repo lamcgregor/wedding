@@ -1,0 +1,8 @@
+0.0.0.0:80
+gzip
+root ./dist
+
+ext .html
+
+proxy /admin backend:8000
+proxy /api backend:8000
