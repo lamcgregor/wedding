@@ -78,15 +78,23 @@ module.exports = function (grunt) {
                     livereload: false
                 }
             },
-            proxies: [{
-                context: '/api',
-                host: 'localhost',
-                port: 8000,
-            }, {
-                context: '/admin',
-                host: 'localhost',
-                port: 8000,
-            }]
+            proxies: [
+                {
+                    context: '/api',
+                    host: 'localhost',
+                    port: 8000,
+                },
+                {
+                    context: '/admin',
+                    host: 'localhost',
+                    port: 8000,
+                },
+                {
+                    context: '/static/admin',
+                    host: 'localhost',
+                    port: 8000,
+                }
+            ]
         },
         stylus: {
             dev: {
