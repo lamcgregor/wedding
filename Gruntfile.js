@@ -1,6 +1,8 @@
 var rewriteRulesSnippet = require("grunt-connect-rewrite/lib/utils").rewriteRequest;
 module.exports = function (grunt) {
     'use strict';
+    var serveStatic = require('serve-static');
+    var serveIndex = require('serve-index');
     grunt.registerTask('listItems', 'Lists the handlebars pages', function () {
         var sourceUrl = 'source/html/pages/';
         var files = grunt.file.expand(sourceUrl + '**/*.{hbs,handlebars}');
@@ -58,12 +60,12 @@ module.exports = function (grunt) {
 
                         // Serve static files.
                         options.base.forEach(function(base) {
-                            middlewares.push(connect.static(base));
+                            middlewares.push(serveStatic(base));
                         });
 
                         // Make directory browse-able.
                         var directory = options.directory || options.base[options.base.length - 1];
-                        middlewares.push(connect.directory(directory));
+                        middlewares.push(serveIndex(directory));
 
                         return middlewares;
                     }
