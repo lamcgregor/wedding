@@ -14,7 +14,10 @@ def get_guest(request):
 
 def rsvp_form(request):
     guest = Guest.objects.get(id=request.session['guest_id'])
-    guests = guest.group.guest_set.order_by("last_name", "first_name")
+    if guest.group:
+        guests = guest.group.guest_set.order_by("last_name", "first_name")
+    else:
+        guests = [guest]
 
     if request.method == 'POST':
         formset = RsvpFormSet(request.POST)
