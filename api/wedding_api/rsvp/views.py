@@ -65,9 +65,7 @@ def guest_form(request):
                 request.session['guest_id'] = guest.id
 
             if form.is_valid():
-                return  JsonResponse({
-                    'redirect': urlresolvers.reverse('rsvp-form')
-                })
+                return HttpResponseRedirect(urlresolvers.reverse('rsvp-form'))
             else:
                 return JsonResponse({
                     'content': render_to_string('rsvp/form.html', {'form': form, 'action': urlresolvers.reverse('guest-form')}, request=request)
