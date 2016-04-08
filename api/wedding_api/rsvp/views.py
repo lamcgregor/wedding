@@ -14,7 +14,10 @@ def get_guest(request):
 
 def rsvp_form(request):
     guest = Guest.objects.get(id=request.session['guest_id'])
-    guests = guest.group.guest_set.order_by("last_name", "first_name")
+    if guest.group:
+        guests = guest.group.guest_set.order_by("last_name", "first_name")
+    else:
+        guests = [guest]
 
     if request.method == 'POST':
         formset = RsvpFormSet(request.POST)
@@ -62,9 +65,7 @@ def guest_form(request):
                 request.session['guest_id'] = guest.id
 
             if form.is_valid():
-                return  JsonResponse({
-                    'redirect': urlresolvers.reverse('rsvp-form')
-                })
+                return HttpResponseRedirect(urlresolvers.reverse('rsvp-form'))
             else:
                 return JsonResponse({
                     'content': render_to_string('rsvp/form.html', {'form': form, 'action': urlresolvers.reverse('guest-form')}, request=request)
