@@ -1,5 +1,10 @@
 ---
 header: false
 ---
-<div class="js-rsvp-form">
-</div>
+{{#rsvp}}
+    {{#if title}}
+        <div class="jumbo center"><h2 class="jumbo--border">{{title}}</h2></div>
+    {{/if}}
+    <div class="js-rsvp-form">
+    </div>
+{{/rsvp}}

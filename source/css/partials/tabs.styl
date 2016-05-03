@@ -1,0 +1,18 @@
+.tabs
+    &--nav
+        &--tab
+            display inline-block
+            vertical-align top
+            padding 0.5em 1em
+            cursor pointer
+            &.active
+                border 1px solid $Mediumgrey
+                border-bottom 1px solid white
+                border-radius 5px 5px 0 0
+    &--content
+        &--container
+            display none
+            border 1px solid $Mediumgrey
+            margin-top -1px
+            &.active
+                display block

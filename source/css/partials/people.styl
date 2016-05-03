@@ -9,23 +9,33 @@
             width 25%
         &--title
             margin-bottom 5px
+            font-family inherit
+            font-size 0.8em
+            font-weight 900
             &s
                 cursor pointer
                 position relative
-                padding 0.5em 1em
-                border 1px solid $Lightgrey
-                margin-bottom 1em
+                padding 0.5em 1.5em 0.5em 1em
+                // border 1px solid $Lightgrey
+                // margin-bottom 1em
+                .icon
+                    position absolute
+                    right 0.5em
+                    top 50%
+                    margin-top -15px
                 &.expanded, &.collapsing
                     border-bottom none
                     .people--item--details
                         opacity 1
+                    .icon
+                        transform rotate(180deg)
         &--subtitle
             font-family 'Karbon'
             font-size 0.8em
         &--details
             position absolute
             z-index 10
-            background-color rgba(255,255,255,0.95)
+            background-color rgba(255,255,255,1)
             font-size 0.8em
             // Add width so that it overlaps other border
             width calc(100% + 2px)
@@ -38,6 +48,8 @@
             margin-top: 0.5em
             padding: 0.5em
             opacity 0
+            p
+                margin 0
         &--image
             perspective 1000
             transform-style preserve-3d

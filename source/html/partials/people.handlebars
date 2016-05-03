@@ -1,27 +1,22 @@
-{{#if people}}
-    {{#with people}}
-        <section class="people"><!--
-            {{#each items}}
-                --><article class="people--item">
-                        <hgroup class="people--item--titles">
-                            {{#if title}}<h3 class="people--item--title">{{title}}</h3>{{/if}}
-                            {{#if subtitle}}<h4 class="people--item--subtitle">{{subtitle}}</h4>{{/if}}
-                            {{#if bio}}
-                            <div class="people--item--details">
-                                <p>{{bio}}</p>
-                            </div>
-                            {{/if}}
-                        </hgroup>
-                        {{#if image}}
-                        <div class="people--item--image">
-                            <div class="flip">
-                                <img class="people--item--image_front" src="images/{{image}}" />
-                                {{#if back}}<img class="people--item--image_back" src="images/{{back}}" />{{/if}}
-                            </div>
-                        </div>
-                        {{/if}}
-                </article><!--
-            {{/each}}
-        --></section>
-    {{/with}}
-{{/if}}
+{{#each items}}
+    --><article class="people--item">
+            <hgroup class="people--item--titles">
+                {{#if title}}<h3 class="people--item--title">{{title}}</h3>{{/if}}
+                {{#if subtitle}}<h4 class="people--item--subtitle">{{subtitle}}</h4>{{/if}}
+                <span class="icon icon_dropdown"></span>
+                {{#if bio}}
+                <div class="people--item--details">
+                    <p>{{bio}}</p>
+                </div>
+                {{/if}}
+            </hgroup>
+            {{#if image}}
+            <div class="people--item--image">
+                <div class="flip">
+                    <img class="people--item--image_front" src="images/{{image}}" />
+                    {{#if back}}<img class="people--item--image_back" src="images/{{back}}" />{{/if}}
+                </div>
+            </div>
+            {{/if}}
+    </article><!--
+{{/each}}

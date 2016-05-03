@@ -2,32 +2,84 @@
     "people": {
         "items": [
             {
-                "title": "Luke Woollett",
-                "subtitle": "The lucky man",
-                "bio": "I feel like if a rapper disses me, they're just trying to get a rise out of me and get me to play in their field to find some way that they can beat me. I feel like there's a lot of rappers that can beat me in ignorance. So why would I play a sport that I'm not particularly trying to get better at or beaten in? There's a lot of rappers that can beat me in ignorance, but there's only a few that can play with true intellect. How fucking perfect is that fucking answer?!",
-                "image": "luke-front.jpg",
-                "back": "luke-back.jpg"
+                "title": "Bride",
+                "items": [
+                    {
+                        "title": "Sarah McGregor",
+                        "subtitle": "Maid of Honour",
+                        "bio": "The Jake to my Elwood. We’ve been sisters for 21 years and I blooming love her to bits. Sarah has been giving me dependable romance advice since she was twelve, so when she described Luke and me as her ‘OTP’ (youth-speak for a perfect couple) I figured it was safe to marry him. ",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    },
+                    {
+                        "title": "Emma Saxon",
+                        "subtitle": "Bridesmaid",
+                        "bio": "The Ann Perkins to my Leslie Knope. I met Emma at university in 2010, and after bonding over a love of cupcakes and Disney movies, we became fast friends. She’s one of the kindest, most level-headed people I know. She’s keeping me sane through all the wedding organisation, and even baking our cake!",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    },
+                    {
+                        "title": "Sara Karimi",
+                        "subtitle": "Bridesmaid",
+                        "bio": "The Carter to my Lee. I’ve known Saz since we were six years old, and we’ve been through thick and thin together. Despite being rather different people, we were always the perfect partners in mischief! I can always rely on Saz for honesty, friendship and rude jokes. ",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    },
+                    {
+                        "title": "Jess (Yang Li)",
+                        "subtitle": "Bridesmaid",
+                        "bio": "The GD to my Top. I met Jess at university in 2010. She has an infectious laugh and I remember us giggling like kids while trying to study in the library. After Jess spent Christmas with my family, my parents all but adopted her. Although she returned to China in 2013, we’ve stayed good friends and I’m honoured that she’s flying over for the wedding.",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    }
+                ]
             },
             {
-                "title": "Peggy McGregor",
-                "subtitle": "The lucky lady",
-                "bio": "I am so credible and so influential and so relevant that I will change things.",
-                "image": "peggy-front.jpg",
-                "back": "peggy-back.jpg"
-            },
-            {
-                "title": "Luke Woollett",
-                "subtitle": "The lucky man",
-                "bio": "I don’t think there’s a living celebrity with more weapons formed against him, but I don’t think there’s one more prosperous.",
-                "image": "luke-front.jpg",
-                "back": "luke-back.jpg"
-            },
-            {
-                "title": "Peggy McGregor",
-                "subtitle": "The lucky lady",
-                "bio": "Sometimes people write novels and they just be so wordy and so self-absorbed. I am not a fan of books. I would never want a book's autograph. I am a proud non-reader of books.",
-                "image": "peggy-front.jpg",
-                "back": "peggy-back.jpg"
+                "title": "Groom",
+                "items": [
+                    {
+                        "title": "Frank Hamand",
+                        "subtitle": "Best man",
+                        "bio": "I’ve known Frank since the beginning of secondary school; we both belonged to the ‘train crew” at Latymer. He secured the place of best man due to his steadfast friendship and winning dance moves. He was pretty handy in helping me with this website too!",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    },
+                    {
+                        "title": "Jacob Bigio",
+                        "subtitle": "Groomsman",
+                        "bio": "Jacob once (unintentionally) flipped me over a table for a screwdriver. We’re still friends though. These days he’s usually hitchhiking around the world; although he’s always missed, when he returns it’s as if he never left, which I take as a sign of real friendship. I’m really chuffed that he’ll be taking a break in his exploration of South America to come to the wedding. ",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    },
+                    {
+                        "title": "Philip Woollett",
+                        "subtitle": "Groomsman",
+                        "bio": "As my brother, Philip has known me since I was two years old. He saw me through all my phases (such as living in a baseball cap), though I’m hoping he won’t entertain wedding guests with stories of my teenage years. As we’ve grown up we’ve become closer and closer; I couldn’t ask for a better brother. ",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    },
+                    {
+                        "title": "Thomas Eagle",
+                        "subtitle": "Groomsman",
+                        "bio": "Thom and I have been friends for many years, minus the hours we spent playing Munchkin (a poisonous board game - never pay it with people you like). Thom is a steadfast friend; he’s always there if you need him. He’s even offered to pay for the marquee if it burns down (please ask him about this). ",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    },
+                    {
+                        "title": "Ilia Popovski",
+                        "subtitle": "Groomsman",
+                        "bio": "Ilia and I initially bonded in Economics class over our mutual love of Adam Smith. He beat me to the altar with his wonderful wife Yumi, whom he married in April, but it does mean he’s adept at handling wedding matters! He also he brings a calm, serene demeanour to the groomsmen group (sorely needed, what with the other lot).",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    },
+                    {
+                        "title": "Ishaac Awatli",
+                        "subtitle": "Groomsman",
+                        "bio": "Ishaac once said I was one of the coolest people he knew. He found cooler people since, but he’s been kind enough to stay my friend. A true friend, he holds the esteemed position of the only person from home to visit me at university - and it was one of the best nights I had there. Doubtless he’ll get everyone on the dancefloor at the wedding too. ",
+                        "image": "luke-front.jpg",
+                        "back": "peggy-back.jpg"
+                    }
+                ]
             }
         ]
     }
