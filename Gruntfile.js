@@ -117,7 +117,7 @@ module.exports = function (grunt) {
             files: {
                 files: [
                     {
-                        src: ['*.*'],
+                        src: ['*.*','!Thumbs.db'],
                         dest: '<%= config.dest %>images/',
                         cwd: '<%= config.source %>images/',
                         expand: true
