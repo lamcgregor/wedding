@@ -5,23 +5,18 @@
 		"items": [
 			{
 				"title": "Home",
-				"icon": "bells_icon",
+				"icon": "bird_icon",
 				"link": "home"
 			},
 			{
-				"title": "The day",
-				"icon": "bells_icon",
-				"link": "theday"
+				"title": "Information",
+				"icon": "champagne_icon",
+				"link": "information"
 			},
 			{
 				"title": "People <span class='small'>&</span> stories",
 				"icon": "bouquet_icon",
 				"link": "peopleandstories"
-			},
-			{
-				"title": "Logistics",
-				"icon": "champagne_icon",
-				"link": "logistics"
 			},
 			{
 				"title": "RSVP",
