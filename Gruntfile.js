@@ -24,6 +24,7 @@ module.exports = function (grunt) {
     });
     grunt.loadNpmTasks('grunt-assemble');
     grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-auto-install');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-contrib-coffee');
@@ -32,6 +33,17 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.initConfig({
+        auto_install: {
+            local: {},
+            subdir: {
+            options: {
+                cwd: 'subdir',
+                stdout: true,
+                stderr: true,
+                failOnError: true,
+                }
+            }
+        },
         config: {
             source: 'source/',
             dest: 'dist/'
@@ -40,7 +52,7 @@ module.exports = function (grunt) {
             options: {
                 port: 9012,
                 livereload: 35729,
-                hostname: 'localhost'
+                hostname: '0.0.0.0'
             },
             rules: [{
                 from: '(^((?!css|html|js|images|png|jpg|fonts|\/$).)*$)',
@@ -81,17 +93,17 @@ module.exports = function (grunt) {
             proxies: [
                 {
                     context: '/api',
-                    host: 'localhost',
+                    host: 'backend',
                     port: 8000,
                 },
                 {
                     context: '/admin',
-                    host: 'localhost',
+                    host: 'backend',
                     port: 8000,
                 },
                 {
                     context: '/static/admin',
-                    host: 'localhost',
+                    host: 'backend',
                     port: 8000,
                 }
             ]
@@ -171,6 +183,10 @@ module.exports = function (grunt) {
                 options: { livereload: true },
                 files: ['<%= config.source %>css/**/*.styl'],
                 tasks: ['stylus:dev']
+            },
+            npm: {
+                files: ['package.json'],
+                tasks: ['auto_install']
             },
             files: {
                 options: { livereload: true },

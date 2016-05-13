@@ -20,5 +20,8 @@
     "grunt-newer": "^1.1.2",
     "serve-index": "^1.7.3",
     "serve-static": "^1.10.2"
+  },
+  "devDependencies": {
+    "grunt-auto-install": "^0.3.0"
   }
 }
