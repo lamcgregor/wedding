@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.core import urlresolvers
 
+from django.db.models import Q
+
 from .forms import GuestForm, RsvpFormSet
 from .models import Guest
 
@@ -15,7 +17,8 @@ def get_guest(request):
 def rsvp_form(request):
     guest = Guest.objects.get(id=request.session['guest_id'])
     if guest.group:
-        guests = guest.group.guest_set.order_by("last_name", "first_name")
+        guests = guest.group.guest_set.filter(~Q(id=guest.id)).order_by("last_name", "first_name")
+        guests = [guest] + list(guests)
     else:
         guests = [guest]
 
