@@ -1,21 +1,23 @@
 .navigation
 	text-align center
 	font-family 'DistantStroke'
+	font-weight normal
 	&--item
 		display inline-block
 		vertical-align middle
 		text-align center
 		width 100%
-		font-size 40px
+		font-size 50px
 		@media $tablet-breakpoint
 			width 50%
 		@media $desktop-breakpoint
 			width auto
 			padding 0 20px
 		@media $desktop-large-breakpoint
-			width 20%
+			min-width 20%
 			padding 0
 		a
+			color $Darkgrey 
 			text-decoration none
 			display inline-block
 			vertical-align middle
