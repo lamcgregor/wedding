@@ -49,11 +49,9 @@ def rsvp_form(request):
             'guest': g, 
             'email': g.email, 
             'attending': g.attending, 
-            'dietary_requirements': g.dietary_requirments,
+            'dietary_requirements': g.dietary_requirements,
             'dietary_other': g.dietary_other,
         } for g in guests])
-
-
 
     return JsonResponse({
         'content': render_to_string('rsvp/rsvp_form.html', {'rsvp_formset': formset, 'action': urlresolvers.reverse('rsvp-form')}, request=request)
