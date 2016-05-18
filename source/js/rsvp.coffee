@@ -12,7 +12,8 @@ $(document).ready ->
             type:'GET'
             success: (response) ->
                 rsvpForm.html response['content']
-                dietary_toggle.call(rsvpForm.find('.dietary-requirements-field')[0])
+                rsvpForm.find('.dietary-requirements-field').each ->
+                    dietary_toggle.call(this)
 
         $(document).on 'submit', 'form', (e) ->
             e.preventDefault()

@@ -18,7 +18,7 @@ class RsvpForm(forms.Form):
         required=False,
         widget=forms.Select(attrs={'class': 'dietary-requirements-field'}))
 
-    dietary_other = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Please specify', 'class': 'dietary-other-field'}), required=False)
+    dietary_other = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'Please specify', 'class': 'dietary-other-field'}), required=False)
     comments = forms.CharField(label='Comments', required=False)
     guest = forms.ModelChoiceField(queryset=Guest.objects.none(), label='Test', widget=forms.HiddenInput())
 
