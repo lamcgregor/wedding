@@ -11,6 +11,9 @@ class Guest(models.Model):
         null=True,
         choices=[('Yes', 'Yes'), ('No', 'No')])
 
+    dietary_requirements = models.TextField(null=True, blank=True)
+    comments = models.TextField(null=True, blank=True)
+
     @property
     def full_name(self):
         return "{first_name} {last_name}".format(first_name=self.first_name, last_name=self.last_name)
