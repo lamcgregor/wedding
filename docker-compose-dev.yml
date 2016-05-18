@@ -1,0 +1,24 @@
+version: '2'
+services:
+  frontend:
+    image: frankh/wedding-dev-frontend
+    ports:
+      - "80:9012"
+    volumes:
+      - .:/app
+    links:
+      - backend:backend
+
+  backend:
+    image: frankh/wedding-dev-backend
+    ports:
+      - "8000"
+    volumes:
+      - data:/data
+      - .:/app
+
+volumes:
+  data:
+    driver: local
+  static:
+    driver: local
