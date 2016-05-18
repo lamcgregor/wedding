@@ -8,7 +8,7 @@ class GuestForm(forms.Form):
     last_name = forms.CharField(label='Last Name', max_length=255, required=True)
 
 class RsvpForm(forms.Form):
-    attending = forms.ChoiceField(choices=[('', 'Please Choose...'), ('yes', 'Yes'), ('no', 'No')], required=True)
+    attending = forms.ChoiceField(choices=[('', 'Please Choose...'), ('yes', 'Yes'), ('no', 'No')], required=False)
     email = forms.EmailField(label='Email Address', required=False)
     guest = forms.ModelChoiceField(queryset=Guest.objects.none(), label='Test', widget=forms.HiddenInput())
 
