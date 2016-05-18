@@ -10,8 +10,14 @@ class GuestForm(forms.Form):
 class RsvpForm(forms.Form):
     attending = forms.ChoiceField(choices=[('', 'Please choose...'), ('yes', 'Yes'), ('no', 'No')], required=False)
     email = forms.EmailField(label='Email address', required=False)
-    dietary_requirements = forms.ChoiceField(choices=[('', 'No special requirements'), ('vegetarian', 'Vegetarian'), ('vegan', 'Vegan'), ('other', 'Other')], required=False)
-    dietary_other = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Please specify'}), required=False)
+    dietary_requirements = forms.ChoiceField(choices=[
+        ('', 'No special requirements'), 
+        ('vegetarian', 'Vegetarian'), 
+        ('vegan', 'Vegan'), 
+        ('other', 'Other')], 
+        required=False,
+        attrs={'class': 'dietary-requirements-field'})
+    dietary_other = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Please specify', 'class': 'dietary-other-field'}), required=False)
     comments = forms.CharField(label='Comments', required=False)
     guest = forms.ModelChoiceField(queryset=Guest.objects.none(), label='Test', widget=forms.HiddenInput())
 
