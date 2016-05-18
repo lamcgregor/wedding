@@ -59,7 +59,8 @@ def guest_form(request):
         if form.is_valid():
             guests = Guest.objects.filter(
                 first_name__iexact=form.cleaned_data['first_name'],
-                last_name__iexact=form.cleaned_data['last_name'])
+                last_name__iexact=form.cleaned_data['last_name']
+            ).exclude(last_name__isnull=True).exclude(last_name__exact='')
 
             if len(guests) < 1:
                 form.add_error("__all__", "No guest matches name, please ensure it is spelt the same as your invitation")

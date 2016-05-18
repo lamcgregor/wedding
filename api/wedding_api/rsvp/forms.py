@@ -12,7 +12,4 @@ class RsvpForm(forms.Form):
     email = forms.EmailField(label='Email Address', required=False)
     guest = forms.ModelChoiceField(queryset=Guest.objects.none(), label='Test', widget=forms.HiddenInput())
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
 RsvpFormSet = formset_factory(RsvpForm, extra=0)
