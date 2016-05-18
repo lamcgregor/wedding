@@ -54,6 +54,7 @@ document.addEventListener 'DOMContentLoaded', ->
 
       onCollapse = ->
         titlesElem.classList.remove('collapsing')
+        detailsElem.style.height = 0
 
       expandListener = ->
         if @classList.contains('expanded')
