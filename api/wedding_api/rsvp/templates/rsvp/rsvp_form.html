@@ -4,8 +4,12 @@
     {% csrf_token %}
     {{ rsvp_formset.management_form }}
     {% for rsvp_form in rsvp_formset.forms %}
-      <h2>{{ rsvp_form.initial.guest }}</h2>
-      {% form rsvp_form %}
+        <div class="rsvp-form--item">
+            <h2 class="rsvp-form--item--title">{{ rsvp_form.initial.guest }}</h2>
+            <div class="rsvp-form--item--fields">
+                {% form rsvp_form %}
+            </div>
+        </div>
     {% endfor %}
 
     <input type="submit" value="Submit" />

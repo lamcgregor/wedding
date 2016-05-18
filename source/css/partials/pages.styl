@@ -28,3 +28,45 @@
         font-size 20px
         line-height 1.3
         margin-bottom 15px
+        
+.rsvp-form
+    @media $tablet-breakpoint
+        padding 0 50px
+    &--item
+        overflow auto
+        margin-bottom 30px
+        @media $tablet-breakpoint
+            margin-bottom 50px
+        input
+        label
+        select
+            margin-bottom 0.5em
+            float left
+            clear both
+            width 100%
+            @media $tablet-breakpoint
+                width auto
+                clear none
+        label
+            margin-right 0.5em
+            line-height 1.2
+            @media $tablet-breakpoint
+                clear left
+                width 250px
+        select
+            // height 30px
+            appearance none
+            background none
+            border-radius 0
+            padding 10px 30px 10px 10px
+            font-size 16px
+            background url("/images/dropdown.svg") no-repeat center right
+        input
+            font-size 16px
+            padding 10px
+        input
+        select
+            @media $tablet-breakpoint
+                width 300px
+        &--title
+            margin-bottom 10px
