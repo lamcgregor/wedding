@@ -54,15 +54,7 @@ document.addEventListener 'DOMContentLoaded', ->
 
       onCollapse = ->
         titlesElem.classList.remove('collapsing')
-
-      onExpand = ->
-        # On expand change height to auto to ensure box is always the right size even after browser resizing.
         detailsElem.style.height = 0
-        height = $item.find('.people--item--image').height()
-        console.log $(detailsElem).parent().parent().height()
-        console.log $(detailsElem).parent().parent()
-        # Set it immediately back to a specific number because transition doesn't work with auto height
-        setTimeout (-> detailsElem.style.height = "#{height}px"), 0
 
       expandListener = ->
         if @classList.contains('expanded')
@@ -75,8 +67,7 @@ document.addEventListener 'DOMContentLoaded', ->
 
         else
           clearTimeout collapseTimeout
-          expandTimeout = setTimeout onExpand, 450
-
+          height = $item.find('.people--item--image').height()
           detailsElem.style.height = "#{height}px"
           @classList.add('expanded')
           @classList.remove('collapsing')
