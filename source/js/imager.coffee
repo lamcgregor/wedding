@@ -1,8 +1,7 @@
 do ->
   actualResizeHandler = ->
-    imageHeight = $('.people--item--image').width()
+    imageHeight = $('.tabs--content--container.active .people--item--image').width()
     $('.people--item--image').height(imageHeight)
-    $('.people--item--titles.expanded .people--item--details').height(imageHeight);
     return
   document.addEventListener 'DOMContentLoaded', ->
     actualResizeHandler()
