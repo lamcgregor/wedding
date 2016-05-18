@@ -3,3 +3,5 @@ dist/
 .yo-rc.json
 PSDs/
 *.pyc
+Thumbs.db
+.DS_Store
