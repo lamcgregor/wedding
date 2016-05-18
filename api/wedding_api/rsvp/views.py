@@ -15,18 +15,21 @@ def get_guest(request):
     return Guest.filter(id=request.session['guest_id']).first()
 
 def rsvp_form(request):
-    guest = Guest.objects.get(id=request.session['guest_id'])
+    guest_query = Guest.objects.filter(id=request.session['guest_id'])
+    guest = guest_query.first()
+
     if guest.group:
         guests = guest.group.guest_set.filter(~Q(id=guest.id)).order_by("last_name", "first_name")
-        guests = [guest] + list(guests)
+        guests = guest_query | guests
     else:
-        guests = [guest]
+        guests = guest_query
 
     if request.method == 'POST':
         formset = RsvpFormSet(request.POST)
         # Only allow submitter to change allowed guests
         for form in formset:
             form.fields['guest'].queryset = guests
+
         if form.is_valid():
             for form in formset:
                 form.full_clean()

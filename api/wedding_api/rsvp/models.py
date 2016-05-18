@@ -11,7 +11,13 @@ class Guest(models.Model):
         null=True,
         choices=[('Yes', 'Yes'), ('No', 'No')])
 
-    dietary_requirements = models.TextField(null=True, blank=True)
+    dietary_requirements = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        choices=[('Vegetarian', 'Vegetarian'), ('Vegan', 'Vegan'), ('Other', 'Other')])
+    dietary_other = models.TextField(max_length=100, null=True, blank=True)
+
     comments = models.TextField(null=True, blank=True)
 
     @property
