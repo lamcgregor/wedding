@@ -9,5 +9,5 @@ $(document).ready ->
             $this.addClass('active')
             index = $this.index()
             $tabsContents = $('.tabs--content--container')
-            $tabsContents.hide()
-            $tabsContents.eq(index).show()
+            $tabsContents.removeClass('active')
+            $tabsContents.eq(index).addClass('active')
