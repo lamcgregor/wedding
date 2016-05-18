@@ -45,7 +45,13 @@ def rsvp_form(request):
             for form in formset:
                 form.initial = {'guest': Guest.objects.get(id=form['guest'].value())}
     else:
-        formset = RsvpFormSet(initial=[{'guest': g, 'email': g.email, 'attending': g.attending} for g in guests])
+        formset = RsvpFormSet(initial=[{
+            'guest': g, 
+            'email': g.email, 
+            'attending': g.attending, 
+            'dietary_requirements': g.dietary_requirments,
+            'dietary_other': g.dietary_other,
+        } for g in guests])
 
 
 
