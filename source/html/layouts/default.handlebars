@@ -12,13 +12,13 @@
     </head>
     <body>
         <main class="wrapper">
+            {{> navigation}}
+            {{> body}}
             {{#if header}}
                 {{#global}}
                         {{> header}}
                 {{/global}}
             {{/if}}
-            {{> navigation}}
-            {{> body}}
         </main>
     </body>
 </html>

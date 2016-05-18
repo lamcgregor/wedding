@@ -18,10 +18,12 @@ body
 html
 	font-family 'Karbon', sans-serif
 	font-size 30px
-	color $Mediumgrey
+	font-weight bold
+	color $Darkgrey
 
 a
-	color inherit
+	color $Skyblue
+	
 h1
 h2
 h3
@@ -30,12 +32,13 @@ h4
 	padding 0
 	font-family 'DistantStroke'
 	font-weight normal
+	color $Darkgrey
 
 .center
 	text-align center
 .jumbo
 	font-size 58px
-	font-weight normal
+	font-weight bold
 	margin 50px auto
 	&--border
 		font-size inherit
@@ -55,12 +58,12 @@ header
 		font-weight normal
 		font-size 58px
 		margin-bottom 30px
-		display none
+		display block
 		@media $tablet-breakpoint
 			margin-bottom 50px
-			display block
+			// display block
 	.intro
-		font-weight 100
+		font-weight bold
 		font-family 'Karbon'
 		font-size 20px
 		margin-bottom 20px
