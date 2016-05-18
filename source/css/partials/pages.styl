@@ -32,49 +32,71 @@
 .rsvp-form
     @media $tablet-breakpoint
         padding 0 50px
+    .dietary-requirements-field + label
+        height 1px
+        margin-bottom 0
     .dietary-other-field
+        margin-top -1px
+        margin-bottom calc(0.5em + 1px)
         display none
     &--item
         overflow auto
         margin-bottom 30px
         @media $tablet-breakpoint
             margin-bottom 50px
-        input
-        label
-        select
-            margin-bottom 0.5em
-            float left
-            clear both
-            width 100%
+        &_login
             @media $tablet-breakpoint
-                width auto
-                clear none
-        label
-            margin-right 0.5em
-            line-height 1.2
-            @media $tablet-breakpoint
-                clear left
-                width 250px
-        select
-            // height 30px
-            appearance none
-            background none
-            border-radius 0
-            padding 10px 30px 10px 10px
-            font-size 16px
-            background url("/images/dropdown.svg") no-repeat center right
-            border 1px solid #ccc
-        input
-            font-size 16px
-            padding 10px
-            border 1px solid #ccc
-        input
-        select
-            @media $tablet-breakpoint
-                width 300px
+                margin-bottom 0
         &--title
             margin-bottom 10px
+    input
+    label
+    select
+    textarea
+        margin-bottom 0.5em
+        float left
+        clear both
+        width 100%
+        @media $tablet-breakpoint
+            width auto
+            clear none
+    label
+        margin-right 0.5em
+        line-height 1.2
+        @media $tablet-breakpoint
+            clear left
+            width 250px
+    select
+        // height 30px
+        appearance none
+        background none
+        border-radius 0
+        padding 10px 30px 10px 10px
+        font-size 16px
+        background url("/images/dropdown.svg") no-repeat center right
+        border 1px solid #ccc
+    input
+    textarea
+        font-size 16px
+        padding 10px
+        border 1px solid #ccc
+    input
+    select
+    textarea
+        @media $tablet-breakpoint
+            width 300px
     input[type="submit"]
         font-size 16px
         border 1px solid #333
-        background-color #eee
+        background-color $Grey-blue
+        padding 5px
+        border-radius 3px
+        color white
+        cursor pointer
+        width auto
+        float none
+        clear none
+        &:hover
+        &:active
+        &:focus
+            background-color $Mediumblue

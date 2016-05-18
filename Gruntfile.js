@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                 } else {
                     title = temp[1].split('.handlebars');
                 }
-                contents += '<li><a href="' + title[0] + '">' + title[0] + '</li>';
+                contents += '<li><a href="' + title[0] + '">' + title[0] + '</a></li>';
             }
             contents += '</ul>';
         }

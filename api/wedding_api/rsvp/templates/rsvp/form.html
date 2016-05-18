@@ -1,7 +1,9 @@
 <div class='form'>
   <form action="{{ action }}" method="post">
       {% csrf_token %}
-      {{ form }}
+      <div class="rsvp-form--item rsvp-form--item_login">
+        {{ form }}
+      </div>
       <input type="submit" value="Submit" />
   </form>
 </div>
