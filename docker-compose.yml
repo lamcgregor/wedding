@@ -6,15 +6,19 @@ services:
       - "80:80"
     volumes:
       - static:/app/dist/static
+      - app:/app
 
   backend:
     image: frankh/wedding-backend
     volumes:
         - data:/data
         - static:/app/dist/static
+        - app:/app
 
 volumes:
   data:
     driver: local
   static:
+    driver: local
+  app:
     driver: local

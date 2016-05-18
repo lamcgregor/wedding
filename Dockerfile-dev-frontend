@@ -7,6 +7,10 @@ RUN apk add nodejs git ca-certificates --no-cache
 RUN npm upgrade -g npm
 ADD package.json Gruntfile.js ./
 RUN npm install
+RUN echo $'#!/bin/sh \n\
+npm install \n\
+exec ./node_modules/.bin/grunt' > /entrypoint.sh \
+  && chmod +x /entrypoint.sh \
+  && cat /entrypoint.sh
 
-
-ENTRYPOINT ["./node_modules/.bin/grunt"]
+ENTRYPOINT ["/entrypoint.sh"]
