@@ -3,7 +3,9 @@
     @media $tablet-breakpoint
         padding 0 50px
     &--item
-        padding 1em
+        padding 0.3em 1em
+        @media screen and (min-width: 400px)
+            padding 1em
         @media screen and (min-width: 800px)
             width 50%
             display inline-block
@@ -15,9 +17,11 @@
         &--title
             margin-bottom 5px
             font-family inherit
-            font-size 50px
             font-weight normal
             font-family 'Distantstroke'
+            font-size 40px
+            @media screen and (min-width: 400px)
+                font-size 50px
             @media $desktop-breakpoint
                 font-size 40px
             @media screen and (min-width: 1600px)
@@ -25,14 +29,17 @@
             &s
                 cursor pointer
                 position relative
-                padding 0.5em 1.5em 0.5em 1em
-                // border 1px solid $Lightgrey
-                // margin-bottom 1em
+                padding-right 1em
+                padding-bottom 0.5em
+                @media screen and (min-width: 400px)
+                    padding 0.5em 1.5em 0.5em 1em
                 .icon
                     position absolute
-                    right 0.5em
                     top 50%
                     margin-top -15px
+                    right 0
+                    @media screen and (min-width: 400px)
+                        right 0.5em
                 &.expanded, &.collapsing
                     border-bottom none
                     .people--item--details

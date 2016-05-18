@@ -3,8 +3,12 @@
         &--tab
             display inline-block
             vertical-align top
-            padding 0.5em 1em
             cursor pointer
+            padding 0.25em
+            font-size 24px
+            @media screen and (min-width: 400px)
+                padding 0.5em 1em
+                font-size 30px
             &.active
                 border 1px solid rgba(138,149,156,0.3)
                 border-bottom 1px solid white
