@@ -93,17 +93,17 @@ module.exports = function (grunt) {
             proxies: [
                 {
                     context: '/api',
-                    host: 'backend',
+                    host: grunt.option('backend') || 'localhost',
                     port: 8000,
                 },
                 {
                     context: '/admin',
-                    host: 'backend',
+                    host: grunt.option('backend') || 'localhost',
                     port: 8000,
                 },
                 {
                     context: '/static/admin',
-                    host: 'backend',
+                    host: grunt.option('backend') || 'localhost',
                     port: 8000,
                 }
             ]

@@ -9,7 +9,7 @@ ADD package.json Gruntfile.js ./
 RUN npm install
 RUN echo $'#!/bin/sh \n\
 npm install \n\
-exec ./node_modules/.bin/grunt' > /entrypoint.sh \
+exec ./node_modules/.bin/grunt --backend=backend' > /entrypoint.sh \
   && chmod +x /entrypoint.sh \
   && cat /entrypoint.sh
 
