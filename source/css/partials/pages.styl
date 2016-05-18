@@ -32,6 +32,8 @@
 .rsvp-form
     @media $tablet-breakpoint
         padding 0 50px
+    .dietary-other-field
+        display none
     &--item
         overflow auto
         margin-bottom 30px
@@ -61,12 +63,18 @@
             padding 10px 30px 10px 10px
             font-size 16px
             background url("/images/dropdown.svg") no-repeat center right
+            border 1px solid #ccc
         input
             font-size 16px
             padding 10px
+            border 1px solid #ccc
         input
         select
             @media $tablet-breakpoint
                 width 300px
         &--title
             margin-bottom 10px
+    input[type="submit"]
+        font-size 16px
+        border 1px solid #333
+        background-color #eee
