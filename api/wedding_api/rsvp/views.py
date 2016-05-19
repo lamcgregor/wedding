@@ -38,6 +38,7 @@ def rsvp_form(request):
                 guest.email = form.clean()['email']
                 guest.dietary_requirements = form.clean()['dietary_requirements']
                 guest.dietary_other = form.clean()['dietary_other']
+                guest.comments = form.clean()['comments']
                 guest.save()
 
             return JsonResponse({
