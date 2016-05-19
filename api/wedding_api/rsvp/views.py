@@ -51,6 +51,7 @@ def rsvp_form(request):
             'guest': g, 
             'email': g.email, 
             'attending': g.attending, 
+            'comments': g.comments, 
             'dietary_requirements': g.dietary_requirements,
             'dietary_other': g.dietary_other,
         } for g in guests])

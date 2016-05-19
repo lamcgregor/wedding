@@ -27,7 +27,11 @@ class RsvpForm(forms.Form):
             'rows': 5}
         ), 
         required=False)
-    comments = forms.CharField(label='Comments', required=False)
+    comments = forms.CharField(label='Comments', widget=forms.Textarea(
+        attrs={
+            'rows': 3}
+        ), 
+        required=False)
     guest = forms.ModelChoiceField(queryset=Guest.objects.none(), label='Test', widget=forms.HiddenInput())
 
 RsvpFormSet = formset_factory(RsvpForm, extra=0)
