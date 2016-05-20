@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Guest(models.Model):
     group = models.ForeignKey('Group', null=True, blank=True)
     first_name = models.CharField(max_length=255)
@@ -30,6 +31,8 @@ class Guest(models.Model):
     def __str__(self):
         return "{self.full_name}".format(self=self)
 
+
 class Group(models.Model):
+
     def __str__(self):
         return "Group: {}".format(', '.join(g.full_name for g in self.guest_set.all()))
