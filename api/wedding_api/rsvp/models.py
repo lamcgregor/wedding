@@ -4,6 +4,9 @@ class Guest(models.Model):
     group = models.ForeignKey('Group', null=True, blank=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, null=True, blank=True)
+
+    unique_together = ("first_name", "last_name")
+
     email = models.EmailField(null=True, blank=True)
     attending = models.CharField(
         max_length=100,
