@@ -15,11 +15,11 @@ class RsvpForm(forms.Form):
     dietary_requirements = forms.ChoiceField(
         choices=[
             ('none', 'No special requirements'),
-            ('vegetarian', 'Vegetarian'), 
+            ('vegetarian', 'Vegetarian'),
             ('vegan', 'Vegan'),
             ('nopork', 'No pork'),
             ('other', 'Other')
-        ], 
+        ],
         required=True,
         widget=forms.Select(attrs={'class': 'dietary-requirements-field'}))
 
@@ -33,7 +33,7 @@ class RsvpForm(forms.Form):
     comments = forms.CharField(label='Comments',  widget=forms.Textarea(
         attrs={
             'placeholder': 'Please leave any messages here',
-            'rows': 1}
+            'rows': 3}
         ),
         required=False)
     guest = forms.ModelChoiceField(queryset=Guest.objects.none(), label='Test', widget=forms.HiddenInput())
