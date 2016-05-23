@@ -22,7 +22,10 @@ def rsvp_form(request):
 
     if guest.group:
         guests = guest.group.guest_set.filter(~Q(id=guest.id)).order_by("last_name", "first_name")
-        guests = guest_query | guests
+        # Hack to force current Guest to be at the front of the queryset.
+        # Have to use a queryset not a list because ModelChoiceField breaks otherwise
+        len(guests)  # Evaluate the queryset
+        guests._result_cache = [guest] + guests._result_cache
     else:
         guests = guest_query
 
