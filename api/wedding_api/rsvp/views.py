@@ -9,10 +9,12 @@ from django.db.models import Q
 from .forms import GuestForm, RsvpFormSet
 from .models import Guest
 
+
 def get_guest(request):
     if 'guest_id' not in request.session:
         return None
     return Guest.filter(id=request.session['guest_id']).first()
+
 
 def rsvp_form(request):
     guest_query = Guest.objects.filter(id=request.session['guest_id'])
@@ -20,7 +22,10 @@ def rsvp_form(request):
 
     if guest.group:
         guests = guest.group.guest_set.filter(~Q(id=guest.id)).order_by("last_name", "first_name")
-        guests = guest_query | guests
+        # Hack to force current Guest to be at the front of the queryset.
+        # Have to use a queryset not a list because ModelChoiceField breaks otherwise
+        len(guests)  # Evaluate the queryset
+        guests._result_cache = [guest] + guests._result_cache
     else:
         guests = guest_query
 
@@ -38,6 +43,7 @@ def rsvp_form(request):
                 guest.email = form.clean()['email']
                 guest.dietary_requirements = form.clean()['dietary_requirements']
                 guest.dietary_other = form.clean()['dietary_other']
+                guest.comments = form.clean()['comments']
                 guest.save()
 
             return JsonResponse({
@@ -48,9 +54,10 @@ def rsvp_form(request):
                 form.initial = {'guest': Guest.objects.get(id=form['guest'].value())}
     else:
         formset = RsvpFormSet(initial=[{
-            'guest': g, 
-            'email': g.email, 
-            'attending': g.attending, 
+            'guest': g,
+            'email': g.email,
+            'attending': g.attending,
+            'comments': g.comments,
             'dietary_requirements': g.dietary_requirements,
             'dietary_other': g.dietary_other,
         } for g in guests])
@@ -58,6 +65,7 @@ def rsvp_form(request):
     return JsonResponse({
         'content': render_to_string('rsvp/rsvp_form.html', {'rsvp_formset': formset, 'action': urlresolvers.reverse('rsvp-form')}, request=request)
     })
+
 
 def guest_form(request):
     if 'guest_id' in request.session:
@@ -72,7 +80,8 @@ def guest_form(request):
             ).exclude(last_name__isnull=True).exclude(last_name__exact='')
 
             if len(guests) < 1:
-                form.add_error("__all__", "No guest matches name, please ensure it is spelt the same as your invitation")
+                form.add_error(
+                    "__all__", "No guest matches name, please ensure it is spelt the same as your invitation")
             else:
                 guest = guests.first()
                 request.session['guest_id'] = guest.id
