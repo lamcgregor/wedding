@@ -30,11 +30,6 @@ class RsvpForm(forms.Form):
             'rows': 5}
     ),
         required=False)
-    comments = forms.CharField(label='Comments', widget=forms.Textarea(
-        attrs={
-            'rows': 3}
-    ),
-        required=False)
     comments = forms.CharField(label='Comments',  widget=forms.Textarea(
         attrs={
             'placeholder': 'Please leave any messages here',
