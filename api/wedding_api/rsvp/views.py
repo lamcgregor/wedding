@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.core import urlresolvers
 
 from django.db.models import Q
+from django.db.models import Case, When
 
 from .forms import GuestForm, RsvpFormSet
 from .models import Guest
@@ -21,29 +22,25 @@ def rsvp_form(request):
     guest = guest_query.first()
 
     if guest.group:
-        guests = guest.group.guest_set.filter(~Q(id=guest.id)).order_by("last_name", "first_name")
-        # Hack to force current Guest to be at the front of the queryset.
-        # Have to use a queryset not a list because ModelChoiceField breaks otherwise
-        len(guests)  # Evaluate the queryset
-        guests._result_cache = [guest] + guests._result_cache
+        # Use case/when to force currently logged in guest to be first
+        guests = guest.group.guest_set.order_by(Case(When(id=guest.id, then=0), default=1), "last_name", "first_name")
     else:
         guests = guest_query
 
     if request.method == 'POST':
         formset = RsvpFormSet(request.POST)
-        # Only allow submitter to change allowed guests
         for form in formset:
             form.fields['guest'].queryset = guests
 
         if form.is_valid():
             for form in formset:
                 form.full_clean()
-                guest = form.clean()['guest']
-                guest.attending = form.clean()['attending']
-                guest.email = form.clean()['email']
-                guest.dietary_requirements = form.clean()['dietary_requirements']
-                guest.dietary_other = form.clean()['dietary_other']
-                guest.comments = form.clean()['comments']
+                guest = form.cleaned_data['guest']
+                guest.attending = form.cleaned_data['attending']
+                guest.email = form.cleaned_data['email']
+                guest.dietary_requirements = form.cleaned_data['dietary_requirements']
+                guest.dietary_other = form.cleaned_data['dietary_other']
+                guest.comments = form.cleaned_data['comments']
                 guest.save()
 
             return JsonResponse({
