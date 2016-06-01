@@ -34,8 +34,8 @@ class RsvpForm(forms.Form):
         attrs={
             'placeholder': 'Please leave any messages here',
             'rows': 3}
-        ),
+    ),
         required=False)
-    guest = forms.ModelChoiceField(queryset=Guest.objects.none(), label='Test', widget=forms.HiddenInput())
+    guest = forms.ModelChoiceField(queryset=Guest.objects.none(), widget=forms.HiddenInput(), required=True)
 
 RsvpFormSet = formset_factory(RsvpForm, extra=0)
