@@ -1,27 +1,21 @@
-version: "2"
+version: '2'
 services:
   frontend:
     image: frankh/wedding-frontend
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - static:/app/dist/static
-      - app:/app
 
   backend:
     image: frankh/wedding-backend
     volumes:
-        - data:/data
+        - /dbs:/data
         - static:/app/dist/static
-        - app:/app
-    environment:
-      - "SECRET_KEY=$SECRET_KEY"
-      - "DJANGO_ENVIRONMENT=production"
 
 volumes:
   data:
     driver: local
   static:
-    driver: local
-  app:
     driver: local
