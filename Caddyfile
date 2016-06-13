@@ -7,3 +7,7 @@ lukeandpeggy.com {
   proxy /admin backend:8000
   proxy /api backend:8000
 }
+
+www.lukeandpeggy.com {
+   redir https://lukeandpeggy.com
+}
