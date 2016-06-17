@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 
 
 class Guest(models.Model):
-    group = models.ForeignKey('Group', null=True, blank=True)
+    group = models.ForeignKey('Group', null=True, blank=True, on_delete=models.SET_NULL)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, null=True, blank=True)
 
@@ -29,7 +29,6 @@ class Guest(models.Model):
     def validate_unique(self, exclude=None):
         super().validate_unique()
         if Guest.objects.filter(first_name=self.first_name, last_name=self.last_name).exclude(id=self.id).count() > 0:
-            import pdb;pdb.set_trace()
             raise ValidationError('Guest with the same name already exists')
 
     @property

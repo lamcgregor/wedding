@@ -19,12 +19,15 @@ class GuestInlineForm(django_forms.ModelForm):
 
     def clean(self, *args, **kwargs):
         super().clean(*args, **kwargs)
-        self.cleaned_data['id'] = self.cleaned_data['guest'].id
+        self.cleaned_data['id'] = self.cleaned_data['guest']
         self.instance = self.cleaned_data['guest']
+        if self.cleaned_data['DELETE']:
+            self.cleaned_data['DELETE_RELATION'] = True
+            self.cleaned_data['DELETE'] = False
         return self.cleaned_data
 
     def save(self, *args, **kwargs):
-        if self.cleaned_data['DELETE']:
+        if 'DELETE_RELATION' in self.cleaned_data and self.cleaned_data['DELETE_RELATION']:
             self.cleaned_data['group'].guest_set.remove(self.cleaned_data['id'])
         else:
             self.cleaned_data['group'].guest_set.add(self.instance)
