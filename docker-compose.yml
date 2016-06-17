@@ -13,9 +13,10 @@ services:
     volumes:
         - /dbs:/data
         - static:/app/dist/static
+    environment:
+        - DJANGO_ENVIRONMENT=production
+        - "SECRET_KEY=$SECRET_KEY"
 
 volumes:
-  data:
-    driver: local
   static:
     driver: local

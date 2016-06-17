@@ -1,3 +1,4 @@
 node_modules/
 dist/
 api/virtual_env/
+**/db.sqlite3

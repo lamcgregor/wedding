@@ -11,6 +11,6 @@ ADD api/requirements.txt ./
 RUN pip install -r requirements.txt
 
 ADD api ./
-RUN python3 wedding_api/manage.py collectstatic --no-input
+RUN python3 wedding_api/manage.py collectstatic --no-input 
 
 CMD ["./entrypoint.sh"]

@@ -4,7 +4,7 @@ import os
 
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
-ALLOWED_HOSTS = ['lukeandpeggy.com']
+ALLOWED_HOSTS = ['lukeandpeggy.com', 'backend:8000', 'backend']
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
@@ -13,7 +13,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
