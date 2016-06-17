@@ -1,12 +1,11 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class Guest(models.Model):
     group = models.ForeignKey('Group', null=True, blank=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, null=True, blank=True)
-
-    unique_together = ("first_name", "last_name")
 
     email = models.EmailField(null=True, blank=True)
     attending = models.CharField(
@@ -23,6 +22,15 @@ class Guest(models.Model):
     dietary_other = models.TextField(max_length=100, null=True, blank=True)
 
     comments = models.TextField(null=True, blank=True)
+
+    # This only adds the constraint to the database. SQLite doesn't enforce constraints.
+    unique_together = ('first_name', 'last_name')
+
+    def validate_unique(self, exclude=None):
+        super().validate_unique()
+        if Guest.objects.filter(first_name=self.first_name, last_name=self.last_name).exclude(id=self.id).count() > 0:
+            import pdb;pdb.set_trace()
+            raise ValidationError('Guest with the same name already exists')
 
     @property
     def full_name(self):

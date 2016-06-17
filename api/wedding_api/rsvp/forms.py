@@ -1,12 +1,38 @@
 import floppyforms as forms
-
+from django import forms as django_forms
 from django.forms import formset_factory
-from .models import Guest
+from .models import Guest, Group
 
 
 class GuestForm(forms.Form):
     first_name = forms.CharField(label='First name', max_length=255, required=True)
     last_name = forms.CharField(label='Last name', max_length=255, required=True)
+
+
+class GuestInlineForm(django_forms.ModelForm):
+    guest = forms.ModelChoiceField(queryset=Guest.objects.all(), required=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance:
+            self.initial['guest'] = self.instance.id
+
+    def clean(self, *args, **kwargs):
+        super().clean(*args, **kwargs)
+        self.cleaned_data['id'] = self.cleaned_data['guest'].id
+        self.instance = self.cleaned_data['guest']
+        return self.cleaned_data
+
+    def save(self, *args, **kwargs):
+        if self.cleaned_data['DELETE']:
+            self.cleaned_data['group'].guest_set.remove(self.cleaned_data['id'])
+        else:
+            self.cleaned_data['group'].guest_set.add(self.instance)
+        return self.instance
+
+    class Meta:
+        model = Guest
+        fields = ['guest']
 
 
 class RsvpForm(forms.Form):
