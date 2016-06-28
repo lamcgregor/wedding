@@ -9,15 +9,15 @@ def send_update_mail(changes, user):
 
     try:
         if len(changes) > 3:
-            subject = ','.join(list(g.first_name for g in changes.keys())[:2])
+            subject = ', '.join(list(g.first_name for g in changes.keys())[:2])
             subject += ', and {} others'.format(len(list(changes.keys())[2:]))
         else:
-            subject = ','.join(g.first_name for g in changes.keys())
+            subject = ', '.join(g.first_name for g in changes.keys())
 
         if len(changes) == 1:
             subject += ' has RSVP\'d'
         else:
-            subject += ' have RSVP\'d'
+            subject += 'have RSVP\'d'
 
         if settings.ENVIRONMENT != 'production':
             subject = 'TEST EMAIL (from {}): '.format(settings.ENVIRONMENT) + subject
