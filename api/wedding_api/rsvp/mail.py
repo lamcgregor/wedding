@@ -28,4 +28,4 @@ def send_update_mail(changes, user):
                   fail_silently=False)
 
     except Exception as e:
-        raise e
+        pass
