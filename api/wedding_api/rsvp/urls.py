@@ -20,4 +20,5 @@ from . import views
 urlpatterns = [
     url(r'^user$', views.guest_form, name='guest-form'),
     url(r'^rsvp$', views.rsvp_form, name='rsvp-form'),
+    url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/rsvp'}, name='rsvp-logout')
 ]
