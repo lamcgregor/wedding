@@ -17,7 +17,7 @@ def send_update_mail(changes, user):
         if len(changes) == 1:
             subject += ' has RSVP\'d'
         else:
-            subject += 'have RSVP\'d'
+            subject += ' have RSVP\'d'
 
         if settings.ENVIRONMENT != 'production':
             subject = 'TEST EMAIL (from {}): '.format(settings.ENVIRONMENT) + subject
