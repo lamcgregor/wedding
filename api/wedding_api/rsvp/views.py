@@ -78,7 +78,7 @@ def guest_form(request):
 
             if len(guests) < 1:
                 form.add_error(
-                    "__all__", "No guest matches name, please ensure it is spelt the same as your invitation")
+                    "__all__", "No guest matches name, please ensure it is spelt the same as your invitation. If you are having trouble logging in you can always RSVP by emailing p.h.mcgregor@gmail.com")
             else:
                 guest = guests.first()
                 request.session['guest_id'] = guest.id
