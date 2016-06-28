@@ -20,7 +20,7 @@ def send_update_mail(changes, user):
             subject += ' have RSVP\'d'
 
         if settings.ENVIRONMENT != 'production':
-            subject = 'TEST EMAIL (from {}):'.format(settings.ENVIRONMENT)
+            subject = 'TEST EMAIL (from {}): '.format(settings.ENVIRONMENT) + subject
 
         send_mail(subject, render_to_string('rsvp/update_email.txt', {'changes': changes, 'user': user}),
                   'notifications@lukeandpeggy.com',
