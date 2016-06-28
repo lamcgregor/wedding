@@ -32,6 +32,7 @@
 .rsvp-form
     @media $tablet-breakpoint
         padding 0 50px
+        max-width 700px
     .errorlist
         font-size 22px
     .dietary-requirements-field + label
@@ -61,14 +62,15 @@
         clear both
         width 100%
         @media $tablet-breakpoint
-            width auto
+            width 50%
             clear none
     label
         margin-right 0.5em
         line-height 1.2
         @media $tablet-breakpoint
             clear left
-            width 250px
+            width 45%
+            margin-right 5%
     select
         // height 30px
         appearance none
@@ -84,11 +86,6 @@
         font-size 16px
         padding 10px
         border 1px solid #ccc
-    input
-    select
-    textarea
-        @media $tablet-breakpoint
-            width 300px
     input[type="submit"]
         font-size 18px
         border 1px solid #333
@@ -104,3 +101,5 @@
         &:active
         &:focus
             background-color $Mediumblue
+    .logout
+        float right
