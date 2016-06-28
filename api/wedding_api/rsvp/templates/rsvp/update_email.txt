@@ -2,7 +2,7 @@ The changed RSVPs are listed below:
 
 {% for name, values in changes.items %}
   {{ name.full_name }}
-  Attending: {{ values.attending || 'unselected'}} {% if values.old_attending and values.old_attending != values.attending %} (changed from {{ values.old_attending }}) {% endif %}
+  Attending: {% firstof values.attending 'unselected' %} {% if values.old_attending and values.old_attending != values.attending %} (changed from {{ values.old_attending }}) {% endif %}
   Dietary Requirements: {{ values.dietary_requirements }}  
   Dietary Comments: {{ values.dietary_other }}  
   Comments: {{ values.comments }}  
