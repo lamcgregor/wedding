@@ -39,7 +39,7 @@ class GuestInlineForm(django_forms.ModelForm):
 
 
 class RsvpForm(forms.Form):
-    attending = forms.ChoiceField(choices=[('', 'Please choose...'), ('yes', 'Yes'), ('no', 'No')], required=True)
+    attending = forms.ChoiceField(choices=[('', 'Please choose...'), ('yes', 'Yes'), ('no', 'No')], required=False)
     email = forms.EmailField(label='Email address', required=False)
     dietary_requirements = forms.ChoiceField(
         choices=[

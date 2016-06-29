@@ -7,6 +7,7 @@ from django.core import urlresolvers
 from django.db.models import Q
 from django.db.models import Case, When
 
+from .mail import send_update_mail
 from .forms import GuestForm, RsvpFormSet
 from .models import Guest
 
@@ -33,15 +34,20 @@ def rsvp_form(request):
             form.fields['guest'].queryset = guests
 
         if form.is_valid():
+            changes = {}
             for form in formset:
                 form.full_clean()
                 guest = form.cleaned_data['guest']
+                if form.changed_data:
+                    changes[guest] = {'old_attending': guest.attending, **form.cleaned_data}
                 guest.attending = form.cleaned_data['attending']
                 guest.email = form.cleaned_data['email']
                 guest.dietary_requirements = form.cleaned_data['dietary_requirements']
                 guest.dietary_other = form.cleaned_data['dietary_other']
                 guest.comments = form.cleaned_data['comments']
                 guest.save()
+
+            send_update_mail(changes, user=guest_query.first())
 
             return JsonResponse({
                 'redirect': '/thanks'

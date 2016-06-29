@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'import_export',
     'floppyforms',
+    'anymail',
     'rsvp',
 ]
 
@@ -100,6 +101,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ANYMAIL = {
+    "MAILGUN_API_KEY": "key-3za9tt-fq-xyg51cq4ugc4dt-1qp9px6",
+}
+
+EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
+DEFAULT_FROM_EMAIL = "info@lukeandpeggy.com"
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
