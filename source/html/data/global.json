@@ -9,9 +9,9 @@
 				"link": "/"
 			},
 			{
-				"title": "Information",
-				"icon": "champagne_icon",
-				"link": "information"
+				"title": "Photos <span class='small'>&</span> speeches",
+				"icon": "dove_icon",
+				"link": "speechesandphotos"
 			},
 			{
 				"title": "People <span class='small'>&</span> stories",
@@ -19,9 +19,9 @@
 				"link": "peopleandstories"
 			},
 			{
-				"title": "Speeches & Photos",
-				"icon": "dove_icon",
-				"link": "speechesandphotos"
+				"title": "Information",
+				"icon": "champagne_icon",
+				"link": "information"
 			}
 		]
 	}

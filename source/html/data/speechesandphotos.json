@@ -1,18 +1,18 @@
 {
-	"title": "Speeches and Photos",
+	"title": "Photos and speeches",
 	"content": {
 		"columns": [
 			{
-				"title": "Speeches",
-				"description": "If you would like to read a transcript of the speeches given before and after dinner please click on the links below:<ul><li><a href='frank'>Best man, Frank Hamand</a></li><li><a href='sarah'>Maid of Honour, Sarah McGregor</a></li><li><a href='charles'>Father of the Bride, Charles McGregor</a></li><li><a href='emma'>Friend wife, Emma Saxon</a></li><li><a href='lynne'>Mother of the Bride, Lynne McGregor</a></li></ul>"
+				"title": "Photos",
+				"description": "Click on the images below to view and download photos:<a class='photos-link' href='https://goo.gl/photos/MCC1FciqaUCCziRm7' target='_blank'><img src='images/wedding-01.png' /></a><a class='photos-link' href='https://goo.gl/photos/J8HtEf6jmohUbHD49' target='_blank'><img src='images/honeymoon-photos-01.png' /></a>"
 			},
 			{
-				"title": "Photos",
-				"description": "The wedding photos can be found here: <a href='https://goo.gl/photos/MCC1FciqaUCCziRm7'>https://goo.gl/photos/MCC1FciqaUCCziRm7</a>"
+				"title": "Speeches",
+				"description": "If you would like to read a transcript of the speeches given before and after dinner please click on the links below:<ul><li><a href='sarah'>Maid of Honour, Sarah McGregor</a></li><li><a href='charles'>Father of the Bride, Charles McGregor</a></li></ul>"
 			},
 			{
 				"title": "Services",
-				"description": "<p>Photography was by <a href='http://www.laineapine.com/'>Laine Apine</a></p><p>Hog roast provided by <a href='http://www.cambridgeeventcateringhogroasts.co.uk/'>Cambridge Event Catering</a></p><p>Dancefloor music by <a href='http://www.honeymoonersband.com/'>The Honeymooners</a><p>"
+				"description": "<p>Photography was by <a href='http://www.laineapine.com/' target='_blank'>Laine Apine</a></p><p>Music by <a href='http://borrowedbody.com/' target='_blank'>Borrowed Body</a></p><p>Dancefloor music by <a href='http://www.honeymoonersband.com/' target='_blank'>The Honeymooners</a><p>"
 			}
 		]
 	}
